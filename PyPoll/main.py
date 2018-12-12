@@ -7,14 +7,13 @@ with open(csvpath,'r', newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     header = next(csvreader)
 
-    print(header)
-
     total_votes = 0
     candidates = []
     khan_votes = 0
     correy_votes = 0
     li_votes = 0
     otooley_votes = 0
+
     for row in csvreader:
         total_votes +=1
         if row[2] not in candidates:
@@ -32,10 +31,36 @@ with open(csvpath,'r', newline="") as csvfile:
         l_perc = round(li_votes/total_votes,2)
         o_perc = round(otooley_votes/total_votes,2)
 
-    print (f'Votes: {total_votes}')
-    print (f'{candidates[0]}- Total Votes: {khan_votes} Percentage: {k_perc}')
-    print (f'{candidates[1]}- Total Votes: {correy_votes} Percentage: {c_perc}')
-    print (f'{candidates[2]}- Total Votes: {li_votes} Percentage: {l_perc}')
-    print (f'{candidates[3]}- Total Votes: {otooley_votes} Percentage: {o_perc}')
+    winner_list = max([khan_votes, correy_votes, li_votes, otooley_votes])
+    if winner_list == khan_votes:
+        winner = "Khan"
+    elif winner_list == correy_votes:
+        winner = "Correy"
+    elif winner_list == li_votes:
+        winner = "Li"
+    elif winner_list == otooley_votes:
+        winnner = "O'Tooley"
 
-    
+    with open("Output.txt", "w") as text_file:
+        text_file.write("ELECTION RESULTS\n")
+        text_file.write("---------------------------------------\n")
+        text_file.write(f'Total Votes: {total_votes}\n')
+        text_file.write("---------------------------------------\n")
+        text_file.write(f'{candidates[0]}- Votes: {khan_votes} Percentage: {k_perc}\n')
+        text_file.write(f' {candidates[1]}- Votes: {correy_votes} Percentage: {c_perc}\n')
+        text_file.write(f' {candidates[2]}- Votes: {li_votes} Percentage: {l_perc}\n')
+        text_file.write(f' {candidates[3]}- Votes: {otooley_votes} Percentage: {o_perc}\n')
+        text_file.write("---------------------------------------\n")
+        text_file.write(f'The winner is {winner}!')
+
+    print ("ELECTION RESULTS")
+    print ("---------------------------------------"),
+    print (f'Total Votes: {total_votes}'),
+    print ("---------------------------------------"),
+    print (f'{candidates[0]}- Votes: {khan_votes} Percentage: {k_perc}'),
+    print (f'{candidates[1]}- Votes: {correy_votes} Percentage: {c_perc}'),
+    print (f'{candidates[2]}- Votes: {li_votes} Percentage: {l_perc}'),
+    print (f'{candidates[3]}- Votes: {otooley_votes} Percentage: {o_perc}'),
+    print ("---------------------------------------"),
+    print (f'The winner is {winner}!')    
+

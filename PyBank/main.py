@@ -22,8 +22,20 @@ with open(csvpath,'r', newline="") as csvfile:
             min_change = int(row[1])
             min_month = row[0]
     avg_change = round(net_amount / months,2)
+
+    print ("FINANCIAL ANALYSIS")
+    print ("-----------------------------")
     print ("Total Months: " + str(months))    
     print ("Total: $" + str(net_amount))
     print ("Average Change: $" + str(avg_change))
     print ("Greatest Increase in Profits: $" + str(max_change) +", in " + max_month)
     print ("Greatest Decrease in Profits: $" + str(min_change) +", in " + min_month)
+
+    with open("Output.txt", "w") as text_file:
+        text_file.write("FINANCIAL ANALYSIS\n")
+        text_file.write("-----------------------------\n")
+        text_file.write(f"Total Months: {months}\n")
+        text_file.write(f"Total: ${net_amount}\n")
+        text_file.write(f"Average Change: ${avg_change}\n")
+        text_file.write(f"Greatest Increase in Profits: ${max_change}, in {max_month}\n")
+        text_file.write(f"Greatest Decrease in Profits: ${min_change}, in {min_month}\n")
