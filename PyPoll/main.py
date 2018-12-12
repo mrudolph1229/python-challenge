@@ -53,14 +53,14 @@ with open(csvpath,'r', newline="") as csvfile:
         text_file.write("---------------------------------------\n")
         text_file.write(f'The winner is {winner}!')
 
-    print ("ELECTION RESULTS")
-    print ("---------------------------------------"),
-    print (f'Total Votes: {total_votes}'),
-    print ("---------------------------------------"),
-    print (f'{candidates[0]}- Votes: {khan_votes} Percentage: {k_perc}'),
-    print (f'{candidates[1]}- Votes: {correy_votes} Percentage: {c_perc}'),
-    print (f'{candidates[2]}- Votes: {li_votes} Percentage: {l_perc}'),
-    print (f'{candidates[3]}- Votes: {otooley_votes} Percentage: {o_perc}'),
-    print ("---------------------------------------"),
-    print (f'The winner is {winner}!')    
+    print (f'ELECTION RESULTS\n\
+---------------------------------------\n\
+Total Votes: {total_votes}\n\
+---------------------------------------\n\
+{candidates[0]}- Votes: {khan_votes} Percentage: {k_perc}\n\
+{candidates[1]}- Votes: {correy_votes} Percentage: {c_perc}\n\
+{candidates[2]}- Votes: {li_votes} Percentage: {l_perc}\n\
+{candidates[3]}- Votes: {otooley_votes} Percentage: {o_perc}\n\
+---------------------------------------\n\
+The winner is {winner}!')    
 
